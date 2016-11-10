@@ -23,13 +23,16 @@
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/frame_main_layout"
+        android:id="@+id/frame_main_layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_below="@+id/linearLayout" />
+
+    <FrameLayout
+        android:id="@+id/frame_main_layout_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linearLayout">
-
-
-    </FrameLayout>
+        android:layout_below="@+id/frame_main_layout_top" />
 
 
 </RelativeLayout>
