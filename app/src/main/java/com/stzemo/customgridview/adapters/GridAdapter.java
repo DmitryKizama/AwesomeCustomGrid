@@ -6,7 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.stzemo.customgridview.R;
+import com.stzemo.customgridview.helper.ScreenParametrs;
 import com.stzemo.customgridview.models.Person;
 
 import java.util.List;
@@ -33,13 +35,16 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
                                                      int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.person_grid, parent, false);
         ViewHolder vh = new ViewHolder(v);
+
+
+        RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ScreenParametrs.getWidth() / 3, ScreenParametrs.getWidth() / 3);
+        vh.photo.setLayoutParams(layoutParams);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-//        holder.photo.setImageURI();
-//        TODO:Image Loader
+        ImageLoader.getInstance().displayImage(listPersons.get(position).urlPhoto, holder.photo);
     }
 
     @Override

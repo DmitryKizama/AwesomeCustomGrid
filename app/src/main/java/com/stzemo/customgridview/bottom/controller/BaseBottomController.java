@@ -7,6 +7,7 @@ public abstract class BaseBottomController {
 
     public BaseBottomController(View parent) {
         this.parent = parent;
+        initialise();
     }
 
     protected abstract void initialise();
