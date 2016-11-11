@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.stzemo.customgridview.R;
+import com.stzemo.customgridview.adapters.GridAdapter;
 import com.stzemo.customgridview.bottom.controller.BaseBottomController;
 import com.stzemo.customgridview.bottom.controller.GridBottomController;
+import com.stzemo.customgridview.models.Person;
 import com.stzemo.customgridview.top.controller.TopController;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GridAdapter.GridAdapterListener, TopController.OnTopControllerCallback {
 
     private FrameLayout bottomLayout, topLayout;
     private BaseBottomController bottomController;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             View view = LayoutInflater.from(this).inflate(R.layout.layout_bottom_grid, bottomLayout, false);
             bottomLayout.removeAllViews();
             bottomLayout.addView(view);
-            bottomController = new GridBottomController(bottomLayout);
+            bottomController = new GridBottomController(bottomLayout, this);
         } else {
             //TODO: another layout
         }
@@ -43,6 +45,16 @@ public class MainActivity extends AppCompatActivity {
         View view = LayoutInflater.from(this).inflate(R.layout.layout_top, topLayout, false);
         topLayout.addView(view);
         topController = new TopController(topLayout);
+        topController.setListener(this);
     }
 
+    @Override
+    public void onPhotoClick(Person person) {
+        topController.addPerson(person);
+    }
+
+    @Override
+    public void onPersonClick(Person person) {
+        bottomController.addPerson(person);
+    }
 }

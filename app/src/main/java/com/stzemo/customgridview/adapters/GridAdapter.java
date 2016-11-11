@@ -15,7 +15,12 @@ import java.util.List;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
 
+    public interface GridAdapterListener {
+        void onPhotoClick(Person person);
+    }
+
     private List<Person> listPersons;
+    private GridAdapterListener listener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView photo;
@@ -26,13 +31,18 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         }
     }
 
-    public GridAdapter(List<Person> listPersons) {
+    public GridAdapter(List<Person> listPersons, GridAdapterListener listener) {
         this.listPersons = listPersons;
+        this.listener = listener;
+    }
+
+    public void addPerson(Person person) {
+        listPersons.add(0, person);
+        notifyItemInserted(0);
     }
 
     @Override
-    public GridAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                     int viewType) {
+    public GridAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.person_grid, parent, false);
         ViewHolder vh = new ViewHolder(v);
 
@@ -43,8 +53,16 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         ImageLoader.getInstance().displayImage(listPersons.get(position).urlPhoto, holder.photo);
+        holder.photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onPhotoClick(listPersons.get(holder.getAdapterPosition()));
+                listPersons.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override

@@ -7,14 +7,21 @@ import android.view.View;
 import com.stzemo.customgridview.R;
 import com.stzemo.customgridview.adapters.GridAdapter;
 import com.stzemo.customgridview.helper.EmulateUrlDownload;
+import com.stzemo.customgridview.models.Person;
 
 public class GridBottomController extends BaseBottomController {
 
     private RecyclerView recyclerView;
     private GridAdapter gAdapter;
 
-    public GridBottomController(View parent) {
-        super(parent);
+
+    public GridBottomController(View parent, GridAdapter.GridAdapterListener gridAdapterListener) {
+        super(parent, gridAdapterListener);
+    }
+
+    @Override
+    public void addPerson(Person person) {
+        gAdapter.addPerson(person);
     }
 
     @Override
@@ -29,7 +36,9 @@ public class GridBottomController extends BaseBottomController {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(recyclerView.getContext(), 3);
         recyclerView.setLayoutManager(layoutManager);
 
-        gAdapter = new GridAdapter(EmulateUrlDownload.getList());
+        gAdapter = new GridAdapter(EmulateUrlDownload.getList(), this);
         recyclerView.setAdapter(gAdapter);
     }
+
+
 }

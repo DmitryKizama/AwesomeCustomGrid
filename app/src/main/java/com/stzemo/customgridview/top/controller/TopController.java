@@ -1,7 +1,7 @@
 package com.stzemo.customgridview.top.controller;
 
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 
 import com.stzemo.customgridview.R;
 import com.stzemo.customgridview.models.Person;
@@ -15,17 +15,17 @@ public class TopController {
 
     private View parent;
     private OnTopControllerCallback listener;
-    private LinearLayout topPhotos;
+    private FrameLayout topPhotos;
     private PhotoTopController photoTopController;
 
     public TopController(View parent) {
         this.parent = parent;
-        topPhotos = (LinearLayout) parent.findViewById(R.id.circle_person_photos);
+        topPhotos = (FrameLayout) parent.findViewById(R.id.circle_person_photos);
         photoTopController = new PhotoTopController(topPhotos);
     }
 
     public void addPerson(Person person) {
-
+        photoTopController.addPerson(person);
     }
 
     public void setListener(final OnTopControllerCallback listener) {
