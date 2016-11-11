@@ -24,6 +24,8 @@ public class EmulateUrlDownload {
             "https://s-media-cache-ak0.pinimg.com/564x/74/f5/b0/74f5b0fdf3af128d06ffa9c130450b76.jpg"
     };
 
+    private static String urlNoPhotos = "https://pp.vk.me/c608828/v608828864/2f15/CddVDKtZqug.jpg";
+
     static {
         list = new ArrayList();
 
@@ -32,6 +34,10 @@ public class EmulateUrlDownload {
             p.urlPhoto = urls[i];
             list.add(p);
         }
+    }
+
+    public static String getNoHoney(){
+        return urlNoPhotos;
     }
 
     public static List<Person> getList() {
