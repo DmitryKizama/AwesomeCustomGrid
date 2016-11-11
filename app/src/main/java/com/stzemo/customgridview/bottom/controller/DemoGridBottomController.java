@@ -9,13 +9,13 @@ import com.stzemo.customgridview.adapters.GridAdapter;
 import com.stzemo.customgridview.helper.EmulateUrlDownload;
 import com.stzemo.customgridview.models.Person;
 
-public class GridBottomController extends BaseBottomController {
+public class DemoGridBottomController extends BaseBottomController {
 
     private RecyclerView recyclerView;
     private GridAdapter gAdapter;
 
 
-    public GridBottomController(View parent, GridAdapter.GridAdapterListener gridAdapterListener) {
+    public DemoGridBottomController(View parent, GridAdapter.GridAdapterListener gridAdapterListener) {
         super(parent, gridAdapterListener);
     }
 
@@ -33,12 +33,13 @@ public class GridBottomController extends BaseBottomController {
     private void init() {
         recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(recyclerView.getContext(), 3);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(recyclerView.getContext(), 5);
         recyclerView.setLayoutManager(layoutManager);
 
-        gAdapter = new GridAdapter(EmulateUrlDownload.getList(), this, 3);
+        gAdapter = new GridAdapter(EmulateUrlDownload.getList(), this, 5);
         recyclerView.setAdapter(gAdapter);
     }
 
 
 }
+

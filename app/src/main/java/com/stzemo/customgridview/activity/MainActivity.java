@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.stzemo.customgridview.R;
 import com.stzemo.customgridview.adapters.GridAdapter;
 import com.stzemo.customgridview.bottom.controller.BaseBottomController;
+import com.stzemo.customgridview.bottom.controller.DemoGridBottomController;
 import com.stzemo.customgridview.bottom.controller.GridBottomController;
 import com.stzemo.customgridview.models.Person;
 import com.stzemo.customgridview.top.controller.TopController;
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements GridAdapter.GridA
     private FrameLayout bottomLayout, topLayout;
     private BaseBottomController bottomController;
     private TopController topController;
+    private Button btnSwitch;
+    private boolean isGridShow = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,15 @@ public class MainActivity extends AppCompatActivity implements GridAdapter.GridA
 
         bottomLayout = (FrameLayout) findViewById(R.id.frame_main_layout_bottom);
         topLayout = (FrameLayout) findViewById(R.id.frame_main_layout_top);
-        inflateBottomLayout(true);
+        btnSwitch = (Button) findViewById(R.id.btnMain);
+        btnSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isGridShow = !isGridShow;
+                inflateBottomLayout(isGridShow);
+            }
+        });
+        inflateBottomLayout(isGridShow);
         inflateTopLayout();
     }
 
@@ -37,7 +49,10 @@ public class MainActivity extends AppCompatActivity implements GridAdapter.GridA
             bottomLayout.addView(view);
             bottomController = new GridBottomController(bottomLayout, this);
         } else {
-            //TODO: another layout
+            View view = LayoutInflater.from(this).inflate(R.layout.layout_bottom_grid, bottomLayout, false);
+            bottomLayout.removeAllViews();
+            bottomLayout.addView(view);
+            bottomController = new DemoGridBottomController(bottomLayout, this);
         }
     }
 
