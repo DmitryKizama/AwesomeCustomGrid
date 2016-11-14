@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.stzemo.customgridview.R;
+import com.stzemo.customgridview.bottom.controller.BottomControllerListener;
 import com.stzemo.customgridview.helper.ScreenParametrs;
 import com.stzemo.customgridview.models.Person;
 
@@ -15,12 +16,9 @@ import java.util.List;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
 
-    public interface GridAdapterListener {
-        void onPhotoClick(Person person);
-    }
 
     private List<Person> listPersons;
-    private GridAdapterListener listener;
+    private BottomControllerListener listener;
     private int columnNumber;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -32,7 +30,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         }
     }
 
-    public GridAdapter(List<Person> listPersons, GridAdapterListener listener, int columnNumber) {
+    public GridAdapter(List<Person> listPersons, BottomControllerListener listener, int columnNumber) {
         this.listPersons = listPersons;
         this.listener = listener;
         this.columnNumber = columnNumber;
@@ -45,7 +43,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
 
     @Override
     public GridAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.person_grid, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.person_img, parent, false);
         ViewHolder vh = new ViewHolder(v);
 
 
@@ -63,7 +61,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
                 if (holder.getAdapterPosition() < 0) {
                     return;
                 }
-                listener.onPhotoClick(listPersons.get(holder.getAdapterPosition()));
+                listener.onPhotoRemovedFromBottom(listPersons.get(holder.getAdapterPosition()));
                 listPersons.remove(holder.getAdapterPosition());
                 notifyItemRemoved(holder.getAdapterPosition());
             }

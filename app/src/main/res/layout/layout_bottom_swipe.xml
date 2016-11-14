@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lorentzos.flingswipe.SwipeFlingAdapterView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_filing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:max_visible="3"
+    app:min_adapter_stack="3"
+    app:rotation_degrees="16" />

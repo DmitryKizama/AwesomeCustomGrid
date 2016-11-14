@@ -2,24 +2,23 @@ package com.stzemo.customgridview.bottom.controller;
 
 import android.view.View;
 
-import com.stzemo.customgridview.adapters.GridAdapter;
 import com.stzemo.customgridview.models.Person;
 
-public abstract class BaseBottomController implements GridAdapter.GridAdapterListener {
+public abstract class BaseBottomController implements BottomControllerListener {
     protected View parent;
-    protected GridAdapter.GridAdapterListener gridAdapterListener;
+    protected BottomControllerListener bottomControllerListener;
 
-    public BaseBottomController(View parent, GridAdapter.GridAdapterListener gridAdapterListener) {
+    public BaseBottomController(View parent, BottomControllerListener gridAdapterListener) {
         this.parent = parent;
-        this.gridAdapterListener = gridAdapterListener;
+        this.bottomControllerListener = gridAdapterListener;
         initialise();
     }
 
     public abstract void addPerson(Person person);
 
     @Override
-    public void onPhotoClick(Person person) {
-        gridAdapterListener.onPhotoClick(person);
+    public void onPhotoRemovedFromBottom(Person person) {
+        bottomControllerListener.onPhotoRemovedFromBottom(person);
     }
 
     protected abstract void initialise();
