@@ -10,12 +10,14 @@ import android.widget.FrameLayout;
 import com.stzemo.customgridview.R;
 import com.stzemo.customgridview.adapters.GridAdapter;
 import com.stzemo.customgridview.bottom.controller.BaseBottomController;
+import com.stzemo.customgridview.bottom.controller.BottomControllerListener;
 import com.stzemo.customgridview.bottom.controller.DemoGridBottomController;
 import com.stzemo.customgridview.bottom.controller.GridBottomController;
+import com.stzemo.customgridview.bottom.controller.SwipeBottomController;
 import com.stzemo.customgridview.models.Person;
 import com.stzemo.customgridview.top.controller.TopController;
 
-public class MainActivity extends AppCompatActivity implements GridAdapter.GridAdapterListener, TopController.OnTopControllerCallback {
+public class MainActivity extends AppCompatActivity implements BottomControllerListener, TopController.OnTopControllerCallback {
 
     private FrameLayout bottomLayout, topLayout;
     private BaseBottomController bottomController;
@@ -49,10 +51,10 @@ public class MainActivity extends AppCompatActivity implements GridAdapter.GridA
             bottomLayout.addView(view);
             bottomController = new GridBottomController(bottomLayout, this);
         } else {
-            View view = LayoutInflater.from(this).inflate(R.layout.layout_bottom_grid, bottomLayout, false);
+            View view = LayoutInflater.from(this).inflate(R.layout.layout_bottom_swipe, bottomLayout, false);
             bottomLayout.removeAllViews();
             bottomLayout.addView(view);
-            bottomController = new DemoGridBottomController(bottomLayout, this);
+            bottomController = new SwipeBottomController(bottomLayout, this);
         }
     }
 
@@ -64,12 +66,12 @@ public class MainActivity extends AppCompatActivity implements GridAdapter.GridA
     }
 
     @Override
-    public void onPhotoClick(Person person) {
+    public void onPhotoRemovedFromBottom(Person person) {
         topController.addPerson(person);
     }
 
     @Override
-    public void onPersonClick(Person person) {
+    public void onPersonRemovedFromTop(Person person) {
         bottomController.addPerson(person);
     }
 }

@@ -15,7 +15,7 @@ public class GridBottomController extends BaseBottomController {
     private GridAdapter gAdapter;
 
 
-    public GridBottomController(View parent, GridAdapter.GridAdapterListener gridAdapterListener) {
+    public GridBottomController(View parent, BottomControllerListener gridAdapterListener) {
         super(parent, gridAdapterListener);
     }
 

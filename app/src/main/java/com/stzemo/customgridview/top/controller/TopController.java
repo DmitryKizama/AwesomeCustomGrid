@@ -10,7 +10,7 @@ public class TopController {
 
 
     public interface OnTopControllerCallback {
-        void onPersonClick(Person person);
+        void onPersonRemovedFromTop(Person person);
     }
 
     private View parent;
@@ -33,7 +33,7 @@ public class TopController {
         photoTopController.setListener(new PhotoTopController.OnPhotoTopControllerCallback() {
             @Override
             public void onPersonClick(Person person) {
-                listener.onPersonClick(person);
+                listener.onPersonRemovedFromTop(person);
             }
         });
     }
