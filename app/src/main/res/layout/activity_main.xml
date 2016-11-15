@@ -10,30 +10,51 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:gravity="right"
         android:orientation="horizontal">
 
-        <Button
+        <ImageView
             android:id="@+id/btnMain"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:text="Change view" />
+            android:src="@mipmap/ic_menu" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lline"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/linearLayout"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal" />
 
     <FrameLayout
         android:id="@+id/frame_main_layout_top"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimary"
         android:layout_height="64dp"
-        android:layout_below="@+id/linearLayout" />
+        android:layout_below="@+id/lline"
+        android:background="@color/colorPrimaryDark" />
 
     <FrameLayout
         android:id="@+id/frame_main_layout_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/frame_main_layout_top" />
+        android:layout_above="@+id/linearLayout2"
+        android:layout_below="@+id/frame_main_layout_top"
+        android:background="@color/colorPrimary" />
 
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
 
 </RelativeLayout>

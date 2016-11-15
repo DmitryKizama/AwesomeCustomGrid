@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.stzemo.customgridview.R;
 import com.stzemo.customgridview.adapters.GridAdapter;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements BottomControllerL
     private FrameLayout bottomLayout, topLayout;
     private BaseBottomController bottomController;
     private TopController topController;
-    private Button btnSwitch;
+    private ImageView btnSwitch;
     private boolean isGridShow = true;
 
     @Override
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements BottomControllerL
 
         bottomLayout = (FrameLayout) findViewById(R.id.frame_main_layout_bottom);
         topLayout = (FrameLayout) findViewById(R.id.frame_main_layout_top);
-        btnSwitch = (Button) findViewById(R.id.btnMain);
+        btnSwitch = (ImageView) findViewById(R.id.btnMain);
         btnSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

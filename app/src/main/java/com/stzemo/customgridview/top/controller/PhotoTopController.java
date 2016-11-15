@@ -1,5 +1,6 @@
 package com.stzemo.customgridview.top.controller;
 
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -37,10 +38,11 @@ public class PhotoTopController {
     private void addPerson(final Person person, boolean addToList, int currentListSize) {
         CircleImageView circleImageView = new CircleImageView(frameLayout.getContext());
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(CIRCLE_SIZE, CIRCLE_SIZE);
-
+//        params.gravity = Gravity
         params.setMargins(MARGIN_LEFT * currentListSize, 0, 0, 0);
         circleImageView.setLayoutParams(params);
         frameLayout.addView(circleImageView);
+
         ImageLoader.getInstance().displayImage(person.urlPhoto, circleImageView);
         if (addToList) {
             list.add(person);
