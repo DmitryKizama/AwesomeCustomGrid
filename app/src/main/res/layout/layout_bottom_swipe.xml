@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.lorentzos.flingswipe.SwipeFlingAdapterView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/swipe_filing"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:max_visible="3"
-    app:min_adapter_stack="3"
-    app:rotation_degrees="16" />
+    android:orientation="vertical">
+
+    <com.lorentzos.flingswipe.SwipeFlingAdapterView
+
+        android:id="@+id/swipe_filing"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:max_visible="3"
+        app:min_adapter_stack="3"
+        app:rotation_degrees="16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:background="@color/colorItems"
+
+            android:text="Next" />
+
+        <TextView
+            android:layout_width="2dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_like"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorItems"
+            android:text="Like" />
+
+    </LinearLayout>
+</LinearLayout>
