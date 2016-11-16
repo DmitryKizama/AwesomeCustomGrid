@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -15,14 +14,17 @@
 
         <ImageView
             android:layout_width="0dp"
+            android:id="@+id/btnDots"
+            android:scaleType="center"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_weight="1"
             android:gravity="end"
-            android:src="@mipmap/ic_error_icon_32" />
+            android:src="@drawable/ic_dots" />
 
         <TextView
             android:layout_width="0dp"
+            android:id="@+id/tvTitle"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:gravity="center"
@@ -34,9 +36,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
+            android:scaleType="center"
             android:layout_weight="1"
             android:gravity="end"
-            android:src="@mipmap/ic_menu" />
+            android:src="@drawable/ic_menu" />
 
     </LinearLayout>
 
@@ -77,25 +80,29 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@mipmap/ic_heart" />
+            android:onClick="onBottomClick"
+            android:scaleType="center"
+            android:src="@drawable/ic_first" />
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:onClick="onBottomClick"
             android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/warning"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_error_icon_32" />
+                android:scaleType="center"
+                android:src="@drawable/ic_award_second_512" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
-                android:src="@mipmap/ic_menu" />
+                android:src="@mipmap/ic_error_icon_32" />
 
         </RelativeLayout>
 
@@ -104,13 +111,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@mipmap/ic_heart" />
+            android:onClick="onBottomClick"
+            android:scaleType="center"
+            android:src="@drawable/ic_third" />
 
         <ImageView
             android:layout_width="0dp"
+            android:onClick="onBottomClick"
+            android:scaleType="center"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@mipmap/ic_error_icon_32" />
+            android:src="@drawable/ic_next_icon" />
 
     </LinearLayout>
 
