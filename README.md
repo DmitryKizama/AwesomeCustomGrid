@@ -11,6 +11,6 @@ Circle Image View
 Swipecards library
 Shared Preferences
 
-![alt tag](https://raw.githubusercontent.com/DmitryKizama/AwesomeCustomGrid/master/grid.png)
-![alt tag](https://raw.githubusercontent.com/DmitryKizama/AwesomeCustomGrid/master/swipe.png)
+<img src="https://raw.githubusercontent.com/DmitryKizama/AwesomeCustomGrid/master/grid.png" width="400" height="700" >
+<img src="https://raw.githubusercontent.com/DmitryKizama/AwesomeCustomGrid/master/swipe.png" width="400" height="700" >
 
