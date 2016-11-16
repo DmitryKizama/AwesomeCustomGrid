@@ -66,7 +66,8 @@ public class SwipeAdapter extends BaseAdapter {
         if (i == 0) {
             firstViewHolder = viewHolder;
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ScreenParametrs.getWidth(), ScreenParametrs.getHeight() - 191);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ScreenParametrs.getWidth(),
+                ScreenParametrs.getHeight() - ScreenParametrs.convertDpToPixel(200));
         view.setLayoutParams(layoutParams);
         ImageLoader.getInstance().displayImage(list.get(i).urlPhoto, viewHolder.im);
 
