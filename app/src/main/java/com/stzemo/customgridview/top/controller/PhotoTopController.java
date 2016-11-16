@@ -39,7 +39,9 @@ public class PhotoTopController {
         CircleImageView circleImageView = new CircleImageView(frameLayout.getContext());
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(CIRCLE_SIZE, CIRCLE_SIZE);
 //        params.gravity = Gravity
-        params.setMargins(MARGIN_LEFT * currentListSize, 0, 0, 0);
+//        params.setMargins(MARGIN_LEFT * currentListSize, 0, 0, 0);
+        params.setMarginStart(MARGIN_LEFT * currentListSize);
+        params.gravity = Gravity.CENTER_VERTICAL;
         circleImageView.setLayoutParams(params);
         frameLayout.addView(circleImageView);
 
