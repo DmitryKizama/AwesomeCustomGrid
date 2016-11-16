@@ -5,38 +5,49 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:src="@mipmap/ic_heart" />
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/ic_heart_font_awesome" />
 
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginRight="6dp"
-        android:layout_weight="2"
+        android:layout_marginLeft="11dp"
         android:gravity="center|end"
         android:text="Fans:"
         android:textColor="@color/colorAccent"
         android:textSize="24sp" />
 
-    <HorizontalScrollView
-        android:layout_width="0dp"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_weight="3">
+        android:layout_marginStart="14dp">
 
-        <FrameLayout
-            android:id="@+id/circle_person_photos"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1">
+        <HorizontalScrollView
+            android:id="@+id/horizontal_scroll_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        </FrameLayout>
+            <FrameLayout
+                android:id="@+id/circle_person_photos"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </HorizontalScrollView>
 
 
-    </HorizontalScrollView>
+        <ImageView
+            android:id="@+id/btn_im_next"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="19dp"
+            android:layout_marginStart="12dp"
+            android:src="@mipmap/ic_arrow" />
+
+    </RelativeLayout>
 
 
 </LinearLayout>
