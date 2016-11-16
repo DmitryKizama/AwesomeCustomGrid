@@ -3,6 +3,7 @@ package com.stzemo.customgridview.bottom.controller;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import com.stzemo.customgridview.R;
@@ -14,7 +15,7 @@ public class SwipeBottomController extends BaseBottomController implements View.
 
     private SwipeFlingAdapterView swipeFlingAdapterView;
     private SwipeAdapter swipeAdapter;
-    private Button btnLike, btnNext;
+    private LinearLayout btnLike, btnNext;
 
     public SwipeBottomController(View parent, BottomControllerListener bottomControllerListener) {
         super(parent, bottomControllerListener);
@@ -28,8 +29,8 @@ public class SwipeBottomController extends BaseBottomController implements View.
     @Override
     protected void initialise() {
         swipeFlingAdapterView = (SwipeFlingAdapterView) parent.findViewById(R.id.swipe_filing);
-        btnLike = (Button) parent.findViewById(R.id.btn_like);
-        btnNext = (Button) parent.findViewById(R.id.btn_next);
+        btnLike = (LinearLayout) parent.findViewById(R.id.btn_like);
+        btnNext = (LinearLayout) parent.findViewById(R.id.btn_next);
         btnNext.setOnClickListener(this);
         btnLike.setOnClickListener(this);
         swipeAdapter = new SwipeAdapter(parent.getContext(), EmulateUrlDownload.getList(), bottomControllerListener);

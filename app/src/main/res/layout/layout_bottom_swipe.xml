@@ -20,27 +20,55 @@
         android:layout_height="60dp"
         android:orientation="horizontal">
 
-        <Button
+        <LinearLayout
             android:id="@+id/btn_next"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-
             android:background="@color/colorItems"
+            android:orientation="horizontal">
 
-            android:text="Next" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Next"
+                android:textSize="25sp" />
 
-        <TextView
-            android:layout_width="2dp"
-            android:layout_height="match_parent" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_arrow"
+                android:padding="20dp"
+                android:background="@color/colorAccent"/>
 
-        <Button
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btn_like"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorItems"
-            android:text="Like" />
+            android:background="@color/colorItemsAccent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Like"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_heart_font_awesome"
+                android:padding="20dp"
+                android:background="@color/colorAccent"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
