@@ -6,7 +6,6 @@
     android:orientation="vertical">
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
-
         android:id="@+id/swipe_filing"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -25,13 +24,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorItems"
+            android:background="@color/colorNext"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:text="Next"
                 android:textSize="25sp" />
@@ -39,9 +38,8 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_arrow"
-                android:padding="20dp"
-                android:background="@color/colorAccent"/>
+                android:paddingLeft="10dp"
+                android:src="@drawable/ic_arrow"/>
 
         </LinearLayout>
 
@@ -50,13 +48,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorItemsAccent"
+            android:gravity="center"
+            android:background="@color/colorLike"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:text="Like"
                 android:textSize="25sp" />
@@ -64,9 +62,8 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_heart_font_awesome"
-                android:padding="20dp"
-                android:background="@color/colorAccent"/>
+                android:src="@drawable/ic_heart_font_awesome"
+                android:paddingLeft="10dp"/>
 
         </LinearLayout>
 
