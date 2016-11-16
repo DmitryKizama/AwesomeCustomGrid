@@ -2,8 +2,12 @@ package com.stzemo.customgridview.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import com.stzemo.customgridview.R;
 
@@ -16,7 +20,7 @@ public class MainActivityActionBarCntl {
 
     private View btnSwitch;
     private View btnInfo;
-    private TextView tvTitle;
+    private TextSwitcher tsTitle;
 
     private Context context;
 
@@ -35,10 +39,10 @@ public class MainActivityActionBarCntl {
 
         isGridShow = getFlag();
 
-        tvTitle = (TextView) parent.findViewById(R.id.tvTitle);
         btnSwitch = parent.findViewById(R.id.btnMain);
         btnInfo = parent.findViewById(R.id.btnDots);
 
+        initTitle(parent);
         setTitleText();
 
         btnSwitch.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +64,25 @@ public class MainActivityActionBarCntl {
         });
     }
 
+    private void initTitle(View parent){
+        tsTitle = (TextSwitcher) parent.findViewById(R.id.tvTitle);
+
+        tsTitle.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView () {
+                TextView tv = new TextView(context);
+                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+                params.gravity = Gravity.CENTER;
+                tv.setLayoutParams(params);
+                tv.setTextSize(17);
+
+                return tv;
+            }
+        });
+        tsTitle.setInAnimation(context, R.anim.in);
+        tsTitle.setOutAnimation(context, R.anim.out);
+    }
+
     private void updateFlag(){
         SharedPreferences sPref = context.getSharedPreferences(ACTION_BAR_SP, MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
@@ -74,9 +97,9 @@ public class MainActivityActionBarCntl {
 
     private void setTitleText(){
         if (isGridShow){
-            tvTitle.setText("Game : Grid Layout");
+            tsTitle.setText("Game : Grid Layout");
         } else {
-            tvTitle.setText("Game : Swipe Layout");
+            tsTitle.setText("Game : Swipe Layout");
         }
     }
 

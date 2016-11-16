@@ -22,13 +22,11 @@
             android:gravity="end"
             android:src="@drawable/ic_dots" />
 
-        <TextView
+        <TextSwitcher
             android:layout_width="0dp"
             android:id="@+id/tvTitle"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:gravity="center"
-            android:text="Game"
             android:textSize="17sp" />
 
         <ImageView
