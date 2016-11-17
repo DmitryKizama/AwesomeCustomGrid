@@ -1,30 +1,33 @@
 package com.stzemo.customgridview.activity;
 
-import android.content.SharedPreferences;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.stzemo.customgridview.R;
 import com.stzemo.customgridview.bottom.controller.BaseBottomController;
 import com.stzemo.customgridview.bottom.controller.BottomControllerListener;
 import com.stzemo.customgridview.bottom.controller.GridBottomController;
 import com.stzemo.customgridview.bottom.controller.SwipeBottomController;
+import com.stzemo.customgridview.helper.MainActivityActionBarCntl;
 import com.stzemo.customgridview.models.Person;
 import com.stzemo.customgridview.top.controller.TopController;
 
 public class MainActivity extends AppCompatActivity implements BottomControllerListener, TopController.OnTopControllerCallback {
 
-    private static final String ISGRIDSHOWN = "isGridShow";
+    private static final String GITHUB_URL = "https://github.com/DmitryKizama/AwesomeCustomGrid";
+
     private FrameLayout bottomLayout, topLayout;
     private BaseBottomController bottomController;
     private TopController topController;
-    private ImageView btnSwitch;
-    private SharedPreferences sPref;
-    private boolean isGridShow = true;
+    private MainActivityActionBarCntl mainActivityActionBarCntl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +36,20 @@ public class MainActivity extends AppCompatActivity implements BottomControllerL
 
         bottomLayout = (FrameLayout) findViewById(R.id.frame_main_layout_bottom);
         topLayout = (FrameLayout) findViewById(R.id.frame_main_layout_top);
-        btnSwitch = (ImageView) findViewById(R.id.btnMain);
-        sPref = getPreferences(MODE_PRIVATE);
-        final SharedPreferences.Editor ed = sPref.edit();
 
-        btnSwitch.setOnClickListener(new View.OnClickListener() {
+        mainActivityActionBarCntl = new MainActivityActionBarCntl(findViewById(R.id.linearLayout), new MainActivityActionBarCntl.OnActionBarClickListener() {
             @Override
-            public void onClick(View view) {
-                isGridShow = !isGridShow;
-                ed.putBoolean(ISGRIDSHOWN, isGridShow);
-                ed.commit();
+            public void onSwitchClicked(boolean isGridShow) {
                 inflateBottomLayout(isGridShow);
             }
+
+            @Override
+            public void onMenuPressed() {
+                showDeveloperInfo();
+            }
         });
-        inflateBottomLayout(sPref.getBoolean(ISGRIDSHOWN, true));
+
+        inflateBottomLayout(mainActivityActionBarCntl.isGridShown());
         inflateTopLayout();
     }
 
@@ -79,5 +82,26 @@ public class MainActivity extends AppCompatActivity implements BottomControllerL
     @Override
     public void onPersonRemovedFromTop(Person person) {
         bottomController.addPerson(person);
+    }
+
+    private void showDeveloperInfo() {
+        new AlertDialog.Builder(this)
+                .setIcon(R.drawable.ic_github)
+                .setTitle("Go to github!")
+                .setMessage("This app was created by Dmitriy Kizema. Look my profile on github, and this project!")
+                .setPositiveButton("To Github", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_URL));
+                        startActivity(intent);
+                    }
+
+                })
+                .setNegativeButton("Back", null)
+                .show();
+    }
+
+    public void onBottomClick(View v){
+        Toast.makeText(this, "Not implemented", Toast.LENGTH_SHORT).show();
     }
 }
