@@ -1,15 +1,19 @@
-# AwesomeCustomGrid
-Small app that have a grid of picture in RecyclerView in 3 columns. You can touch them and it goes to the top (near fans)
-App contains main activity with 2 built-in layauts, that can switchs by top right button in toolbar.
-First position of switch button shows you a grid with pictures. 
-Second position shows simple one picture. You can grab it and throw to the left (next) or right (like, add to the top).
-On the top view you can click on them and they go to the list back (to the the grid view or simple view).
+# AwesomeCustomGrid<br>
 
-Using: 
-Universal Image Loader (for download img by url)
-Circle Image View
-Swipecards library
-Shared Preferences
+This is Demo app I created to train myself implement custom views from redlines (PSD - I had found this screens on internet, there are part of social network)<br>
+***<br>
+Functionality : <br>
+You can switch layouts - swipe layout or grid. You can click on grid girls, and they go to the top, and click to Top bar, and they go to<br> the bottom, simple.<br>
+The same with swipe - swipe right to add girl to the Top, and press on top bar girl, to take her back to the swipe layout.<br>
+***<br>
+Main task was implementing clean code<br>
+***<br>
+***<br>
+Using: Shared Preferences <br>
+Using third party libs: <br>
+-Universal Image Loader <br>
+-CircleImageView <br>
+-Swipecards library<br>
 
 <img src="https://raw.githubusercontent.com/DmitryKizama/AwesomeCustomGrid/master/grid.png" width="400" height="700" >
 <img src="https://raw.githubusercontent.com/DmitryKizama/AwesomeCustomGrid/master/swipe.png" width="400" height="700" >
