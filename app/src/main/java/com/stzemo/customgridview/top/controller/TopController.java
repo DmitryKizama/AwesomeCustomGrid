@@ -28,6 +28,7 @@ public class TopController {
         btnNext = (ImageView) parent.findViewById(R.id.btn_im_next);
         hScrollView = (HorizontalScrollView) parent.findViewById(R.id.horizontal_scroll_bar);
         photoTopController = new PhotoTopController(topPhotos);
+
     }
 
     public void addPerson(Person person) {

@@ -26,11 +26,12 @@
         android:layout_height="match_parent"
         android:layout_marginStart="14dp">
 
+
         <HorizontalScrollView
             android:id="@+id/horizontal_scroll_bar"
             android:layout_width="match_parent"
-            android:layout_marginRight="65dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginEnd="65dp">
 
             <FrameLayout
                 android:id="@+id/circle_person_photos"
@@ -39,6 +40,16 @@
 
         </HorizontalScrollView>
 
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_ltr" />
+
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_alignEnd="@+id/horizontal_scroll_bar"
+            android:background="@drawable/gradient_rtl" />
 
         <ImageView
             android:id="@+id/btn_im_next"
